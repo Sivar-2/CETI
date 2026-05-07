@@ -27,14 +27,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
     ),
     _ActivityItem(
       icon: Icons.inventory_2_rounded,
-      color: AppColors.amber,
+      color: AppColors.warning,
       title: 'Stock bajo: Café Molido',
       subtitle: 'Quedan 2 unidades',
       amount: null,
     ),
     _ActivityItem(
       icon: Icons.loyalty_rounded,
-      color: AppColors.gold,
+      color: AppColors.primary,
       title: 'Cliente Gold: Ana Martínez',
       subtitle: 'Visita #12 registrada',
       amount: null,
@@ -67,7 +67,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [AppColors.deepBlack, Color(0xFF0C0C18)],
+          colors: [AppColors.background, Color(0xFF0C0C18)],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
@@ -90,7 +90,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             title: Text(
               'CETI Dashboard',
-              style: GoogleFonts.dmSans(
+              style: GoogleFonts.plusJakartaSans(
                 color: AppColors.textPrimary,
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
@@ -109,11 +109,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   width: 36,
                   height: 36,
                   decoration: BoxDecoration(
-                    gradient: AppColors.goldGradient,
+                    gradient: AppColors.primaryGradient,
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(Icons.person, size: 18,
-                      color: AppColors.deepBlack),
+                      color: AppColors.background),
                 ),
               ),
             ],
@@ -315,7 +315,7 @@ class _RevenueCardState extends State<_RevenueCard>
               children: [
                 Text(
                   'Ventas de Hoy',
-                  style: GoogleFonts.dmSans(
+                  style: GoogleFonts.plusJakartaSans(
                     color: AppColors.textSecondary,
                     fontSize: 13,
                     letterSpacing: 0.5,
@@ -336,7 +336,7 @@ class _RevenueCardState extends State<_RevenueCard>
                       const SizedBox(width: 2),
                       Text(
                         '+12%',
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                           color: AppColors.success,
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
@@ -360,8 +360,8 @@ class _RevenueCardState extends State<_RevenueCard>
                 widget.zeroSales
                     ? '\$0.00'
                     : widget.currency.format(widget.todaySales),
-                style: GoogleFonts.dmSans(
-                  color: widget.zeroSales ? AppColors.amber : AppColors.textPrimary,
+                style: GoogleFonts.plusJakartaSans(
+                  color: widget.zeroSales ? AppColors.warning : AppColors.textPrimary,
                   fontSize: 36,
                   fontWeight: FontWeight.w800,
                   letterSpacing: -1,
@@ -372,8 +372,8 @@ class _RevenueCardState extends State<_RevenueCard>
               const SizedBox(height: 6),
               Text(
                 '¿Registraste tu primera venta? 🐆',
-                style: GoogleFonts.dmSans(
-                  color: AppColors.amber,
+                style: GoogleFonts.plusJakartaSans(
+                  color: AppColors.warning,
                   fontSize: 13,
                   fontWeight: FontWeight.w500,
                 ),
@@ -382,7 +382,7 @@ class _RevenueCardState extends State<_RevenueCard>
               const SizedBox(height: 6),
               Text(
                 'de \$500.00 meta diaria',
-                style: GoogleFonts.dmSans(
+                style: GoogleFonts.plusJakartaSans(
                   color: AppColors.textSecondary,
                   fontSize: 12,
                 ),
@@ -428,7 +428,7 @@ class _StatCard extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             value,
-            style: GoogleFonts.dmSans(
+            style: GoogleFonts.plusJakartaSans(
               color: AppColors.textPrimary,
               fontSize: 18,
               fontWeight: FontWeight.w800,
@@ -436,7 +436,7 @@ class _StatCard extends StatelessWidget {
           ),
           Text(
             label,
-            style: GoogleFonts.dmSans(
+            style: GoogleFonts.plusJakartaSans(
               color: AppColors.textTertiary,
               fontSize: 10,
             ),
@@ -465,7 +465,7 @@ class _SectionHeader extends StatelessWidget {
       children: [
         Text(
           title,
-          style: GoogleFonts.dmSans(
+          style: GoogleFonts.plusJakartaSans(
             color: AppColors.textPrimary,
             fontSize: 17,
             fontWeight: FontWeight.w700,
@@ -476,8 +476,8 @@ class _SectionHeader extends StatelessWidget {
           onTap: onAction,
           child: Text(
             actionLabel,
-            style: GoogleFonts.dmSans(
-              color: AppColors.gold,
+            style: GoogleFonts.plusJakartaSans(
+              color: AppColors.primary,
               fontSize: 13,
               fontWeight: FontWeight.w600,
             ),
@@ -520,7 +520,7 @@ class _MessageCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   d['name']!,
-                  style: GoogleFonts.dmSans(
+                  style: GoogleFonts.plusJakartaSans(
                     color: AppColors.textPrimary,
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
@@ -538,7 +538,7 @@ class _MessageCard extends StatelessWidget {
                   ),
                   child: Text(
                     'IA ✦',
-                    style: GoogleFonts.dmSans(
+                    style: GoogleFonts.plusJakartaSans(
                       color: AppColors.purple,
                       fontSize: 9,
                       fontWeight: FontWeight.w700,
@@ -549,7 +549,7 @@ class _MessageCard extends StatelessWidget {
           ),
           Text(
             d['msg']!,
-            style: GoogleFonts.dmSans(
+            style: GoogleFonts.plusJakartaSans(
               color: AppColors.textSecondary,
               fontSize: 12,
             ),
@@ -558,7 +558,7 @@ class _MessageCard extends StatelessWidget {
           ),
           Text(
             d['time']!,
-            style: GoogleFonts.dmSans(
+            style: GoogleFonts.plusJakartaSans(
               color: AppColors.textTertiary,
               fontSize: 10,
             ),
@@ -598,7 +598,7 @@ class _ActivityTile extends StatelessWidget {
               children: [
                 Text(
                   item.title,
-                  style: GoogleFonts.dmSans(
+                  style: GoogleFonts.plusJakartaSans(
                     color: AppColors.textPrimary,
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
@@ -606,7 +606,7 @@ class _ActivityTile extends StatelessWidget {
                 ),
                 Text(
                   item.subtitle,
-                  style: GoogleFonts.dmSans(
+                  style: GoogleFonts.plusJakartaSans(
                     color: AppColors.textTertiary,
                     fontSize: 11,
                   ),
@@ -617,7 +617,7 @@ class _ActivityTile extends StatelessWidget {
           if (item.amount != null)
             Text(
               item.amount!,
-              style: GoogleFonts.dmSans(
+              style: GoogleFonts.plusJakartaSans(
                 color: AppColors.success,
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
@@ -641,22 +641,22 @@ class _ReminderTile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       borderRadius: 16,
       borderColor: reminder.urgent
-          ? AppColors.amber.withValues(alpha: 0.4)
-          : AppColors.borderWhite,
+          ? AppColors.warning.withValues(alpha: 0.4)
+          : AppColors.border,
       child: Row(
         children: [
           Icon(
             reminder.urgent
                 ? Icons.alarm_on_rounded
                 : Icons.calendar_today_rounded,
-            color: reminder.urgent ? AppColors.amber : AppColors.textTertiary,
+            color: reminder.urgent ? AppColors.warning : AppColors.textTertiary,
             size: 16,
           ),
           const SizedBox(width: 12),
           Expanded(
             child: Text(
               reminder.title,
-              style: GoogleFonts.dmSans(
+              style: GoogleFonts.plusJakartaSans(
                 color: AppColors.textPrimary,
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
@@ -665,9 +665,9 @@ class _ReminderTile extends StatelessWidget {
           ),
           Text(
             reminder.date,
-            style: GoogleFonts.dmSans(
+            style: GoogleFonts.plusJakartaSans(
               color: reminder.urgent
-                  ? AppColors.amber
+                  ? AppColors.warning
                   : AppColors.textTertiary,
               fontSize: 11,
               fontWeight:
@@ -690,9 +690,9 @@ class _AlertsSheet extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.surfaceDark,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: AppColors.borderWhite, width: 0.5),
+        border: Border.all(color: AppColors.border, width: 0.5),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -702,14 +702,14 @@ class _AlertsSheet extends StatelessWidget {
             width: 36,
             height: 4,
             decoration: BoxDecoration(
-              color: AppColors.borderWhite,
+              color: AppColors.border,
               borderRadius: BorderRadius.circular(4),
             ),
           ),
           const SizedBox(height: 20),
           Text(
             'Alertas del Sistema',
-            style: GoogleFonts.dmSans(
+            style: GoogleFonts.plusJakartaSans(
               color: AppColors.textPrimary,
               fontSize: 16,
               fontWeight: FontWeight.w700,
@@ -724,7 +724,7 @@ class _AlertsSheet extends StatelessWidget {
           ),
           _AlertRow(
             icon: Icons.warning_amber_rounded,
-            color: AppColors.amber,
+            color: AppColors.warning,
             title: 'Margen bajo: Espresso Doble',
             subtitle: 'Margen actual 15%',
           ),
@@ -774,7 +774,7 @@ class _AlertRow extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: GoogleFonts.dmSans(
+                style: GoogleFonts.plusJakartaSans(
                   color: AppColors.textPrimary,
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
@@ -782,7 +782,7 @@ class _AlertRow extends StatelessWidget {
               ),
               Text(
                 subtitle,
-                style: GoogleFonts.dmSans(
+                style: GoogleFonts.plusJakartaSans(
                   color: AppColors.textTertiary,
                   fontSize: 11,
                 ),

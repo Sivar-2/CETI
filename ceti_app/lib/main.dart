@@ -55,7 +55,7 @@ class CetiApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'CETI — Business SuperApp',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.dark,
+      theme: AppTheme.light,
       routerConfig: appRouter,
     );
   }

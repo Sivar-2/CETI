@@ -86,9 +86,9 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
         SnackBar(
           content: Text(
             '🐆 ¡Visita registrada! ${_customer?.name} → Visita #${_customer?.visits}',
-            style: GoogleFonts.dmSans(color: AppColors.textPrimary),
+            style: GoogleFonts.plusJakartaSans(color: AppColors.textPrimary),
           ),
-          backgroundColor: AppColors.cardDark,
+          backgroundColor: AppColors.card,
         ),
       );
     }
@@ -109,7 +109,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
   Color _levelColor(String level) {
     switch (level) {
       case 'Gold':
-        return AppColors.gold;
+        return AppColors.primary;
       case 'Silver':
         return AppColors.silver;
       default:
@@ -136,7 +136,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
         : 0.0;
 
     return Container(
-      color: AppColors.deepBlack,
+      color: AppColors.background,
       child: Stack(
         children: [
           // Glow background
@@ -170,7 +170,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: Text(
                       'Club Jaguar 🐆',
-                      style: GoogleFonts.dmSans(
+                      style: GoogleFonts.plusJakartaSans(
                         color: AppColors.textPrimary,
                         fontSize: 22,
                         fontWeight: FontWeight.w800,
@@ -186,7 +186,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                     children: [
                       Text(
                         'Registrar Visita por NFC',
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                           color: AppColors.textPrimary,
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
@@ -195,7 +195,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                       const SizedBox(height: 6),
                       Text(
                         'Acerca el teléfono del cliente al POS',
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                           color: AppColors.textSecondary,
                           fontSize: 12,
                         ),
@@ -230,7 +230,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                         border: Border.all(
-                                          color: AppColors.gold
+                                          color: AppColors.primary
                                               .withValues(alpha: opacity),
                                           width: 1,
                                         ),
@@ -246,21 +246,21 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                                     shape: BoxShape.circle,
                                     gradient: LinearGradient(
                                       colors: [
-                                        AppColors.gold.withValues(alpha: 0.2),
-                                        AppColors.gold.withValues(alpha: 0.05),
+                                        AppColors.primary.withValues(alpha: 0.2),
+                                        AppColors.primary.withValues(alpha: 0.05),
                                       ],
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
                                     ),
                                     border: Border.all(
-                                      color: AppColors.gold
+                                      color: AppColors.primary
                                           .withValues(alpha: 0.4),
                                       width: 1,
                                     ),
                                     boxShadow: _nfcScanning
                                         ? [
                                             BoxShadow(
-                                              color: AppColors.gold
+                                              color: AppColors.primary
                                                   .withValues(alpha: 0.3),
                                               blurRadius: 30,
                                             ),
@@ -272,14 +272,14 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                                     children: [
                                       Icon(
                                         Icons.nfc_rounded,
-                                        color: AppColors.gold,
+                                        color: AppColors.primary,
                                         size: 36,
                                       ),
                                       if (_nfcScanning)
                                         Text(
                                           'Leyendo...',
-                                          style: GoogleFonts.dmSans(
-                                            color: AppColors.gold,
+                                          style: GoogleFonts.plusJakartaSans(
+                                            color: AppColors.primary,
                                             fontSize: 9,
                                           ),
                                         ),
@@ -295,9 +295,9 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                       const SizedBox(height: 16),
                       Text(
                         _nfcScanning ? 'Escaneando NFC...' : 'Toca para simular escaneo',
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                           color: _nfcScanning
-                              ? AppColors.gold
+                              ? AppColors.primary
                               : AppColors.textTertiary,
                           fontSize: 12,
                         ),
@@ -329,7 +329,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                               child: Center(
                                 child: Text(
                                   c.name[0],
-                                  style: GoogleFonts.dmSans(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: _levelColor(c.level),
                                     fontSize: 22,
                                     fontWeight: FontWeight.w800,
@@ -344,7 +344,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                                 children: [
                                   Text(
                                     c.name,
-                                    style: GoogleFonts.dmSans(
+                                    style: GoogleFonts.plusJakartaSans(
                                       color: AppColors.textPrimary,
                                       fontSize: 16,
                                       fontWeight: FontWeight.w700,
@@ -358,7 +358,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                                       const SizedBox(width: 4),
                                       Text(
                                         c.level,
-                                        style: GoogleFonts.dmSans(
+                                        style: GoogleFonts.plusJakartaSans(
                                           color: _levelColor(c.level),
                                           fontSize: 13,
                                           fontWeight: FontWeight.w700,
@@ -374,7 +374,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                               children: [
                                 Text(
                                   '${c.visits}',
-                                  style: GoogleFonts.dmSans(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: _levelColor(c.level),
                                     fontSize: 28,
                                     fontWeight: FontWeight.w800,
@@ -382,7 +382,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                                 ),
                                 Text(
                                   'Visitas',
-                                  style: GoogleFonts.dmSans(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: AppColors.textTertiary,
                                     fontSize: 11,
                                   ),
@@ -402,14 +402,14 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                               children: [
                                 Text(
                                   'Progreso al siguiente nivel',
-                                  style: GoogleFonts.dmSans(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: AppColors.textSecondary,
                                     fontSize: 12,
                                   ),
                                 ),
                                 Text(
                                   '${c.visits}/${c.nextLevelVisits}',
-                                  style: GoogleFonts.dmSans(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: _levelColor(c.level),
                                     fontSize: 12,
                                     fontWeight: FontWeight.w700,
@@ -423,7 +423,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                               child: LinearProgressIndicator(
                                 value: progress.clamp(0.0, 1.0),
                                 backgroundColor:
-                                    AppColors.borderWhite.withValues(alpha: 0.3),
+                                    AppColors.border.withValues(alpha: 0.3),
                                 valueColor: AlwaysStoppedAnimation(
                                     _levelColor(c.level)),
                                 minHeight: 8,
@@ -469,7 +469,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                       children: [
                         Text(
                           'Niveles del Club',
-                          style: GoogleFonts.dmSans(
+                          style: GoogleFonts.plusJakartaSans(
                             color: AppColors.textPrimary,
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
@@ -497,7 +497,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                         _LevelRow(
                           emoji: '🥇',
                           level: 'Gold',
-                          color: AppColors.gold,
+                          color: AppColors.primary,
                           description: '20+ visitas',
                           perks: '15% desc + Postres + Prioridad',
                           active: c.level == 'Gold',
@@ -517,7 +517,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                     children: [
                       Text(
                         'Top Clientes',
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                           color: AppColors.textPrimary,
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
@@ -533,9 +533,9 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                             children: [
                               Text(
                                 '${i + 1}',
-                                style: GoogleFonts.dmSans(
+                                style: GoogleFonts.plusJakartaSans(
                                   color: i == 0
-                                      ? AppColors.gold
+                                      ? AppColors.primary
                                       : AppColors.textTertiary,
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700,
@@ -550,7 +550,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                               Expanded(
                                 child: Text(
                                   cust.name,
-                                  style: GoogleFonts.dmSans(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: AppColors.textPrimary,
                                     fontSize: 13,
                                   ),
@@ -558,7 +558,7 @@ class _LoyaltyScreenState extends State<LoyaltyScreen>
                               ),
                               Text(
                                 '${cust.visits} vis.',
-                                style: GoogleFonts.dmSans(
+                                style: GoogleFonts.plusJakartaSans(
                                   color: _levelColor(cust.level),
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600,
@@ -630,7 +630,7 @@ class _LevelRow extends StatelessWidget {
                   children: [
                     Text(
                       level,
-                      style: GoogleFonts.dmSans(
+                      style: GoogleFonts.plusJakartaSans(
                         color: color,
                         fontSize: 13,
                         fontWeight: FontWeight.w700,
@@ -639,7 +639,7 @@ class _LevelRow extends StatelessWidget {
                     const SizedBox(width: 6),
                     Text(
                       description,
-                      style: GoogleFonts.dmSans(
+                      style: GoogleFonts.plusJakartaSans(
                         color: AppColors.textTertiary,
                         fontSize: 11,
                       ),
@@ -648,7 +648,7 @@ class _LevelRow extends StatelessWidget {
                 ),
                 Text(
                   perks,
-                  style: GoogleFonts.dmSans(
+                  style: GoogleFonts.plusJakartaSans(
                     color: AppColors.textSecondary,
                     fontSize: 11,
                   ),
@@ -666,7 +666,7 @@ class _LevelRow extends StatelessWidget {
               ),
               child: Text(
                 'Actual',
-                style: GoogleFonts.dmSans(
+                style: GoogleFonts.plusJakartaSans(
                   color: color,
                   fontSize: 10,
                   fontWeight: FontWeight.w700,
@@ -708,7 +708,7 @@ class _CelebrationOverlayState extends State<_CelebrationOverlay> {
           child: GlassCard(
             padding: const EdgeInsets.all(32),
             borderRadius: 28,
-            borderColor: AppColors.gold.withValues(alpha: 0.5),
+            borderColor: AppColors.primary.withValues(alpha: 0.5),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -719,8 +719,8 @@ class _CelebrationOverlayState extends State<_CelebrationOverlay> {
                 const SizedBox(height: 16),
                 Text(
                   '¡Nivel Alcanzado!',
-                  style: GoogleFonts.dmSans(
-                    color: AppColors.gold,
+                  style: GoogleFonts.plusJakartaSans(
+                    color: AppColors.primary,
                     fontSize: 24,
                     fontWeight: FontWeight.w800,
                   ),
@@ -729,7 +729,7 @@ class _CelebrationOverlayState extends State<_CelebrationOverlay> {
                 Text(
                   'El cliente subió al siguiente nivel del Club Jaguar',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.dmSans(
+                  style: GoogleFonts.plusJakartaSans(
                     color: AppColors.textSecondary,
                     fontSize: 13,
                   ),

@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.deepBlack,
+      backgroundColor: AppColors.background,
       resizeToAvoidBottomInset: true,
       body: Stack(
         children: [
@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.gold.withValues(alpha: 0.12),
+                    AppColors.primary.withValues(alpha: 0.12),
                     Colors.transparent,
                   ],
                 ),
@@ -106,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: 48,
                         height: 48,
                         decoration: BoxDecoration(
-                          gradient: AppColors.goldGradient,
+                          gradient: AppColors.primaryGradient,
                           borderRadius: BorderRadius.circular(14),
                         ),
                         child: Image.asset(
@@ -114,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fit: BoxFit.contain,
                           errorBuilder: (_, _, _) => const Icon(
                             Icons.pets,
-                            color: AppColors.deepBlack,
+                            color: AppColors.background,
                             size: 26,
                           ),
                         ),
@@ -125,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           Text(
                             'CETI',
-                            style: GoogleFonts.dmSans(
+                            style: GoogleFonts.plusJakartaSans(
                               color: AppColors.textPrimary,
                               fontSize: 24,
                               fontWeight: FontWeight.w800,
@@ -134,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           Text(
                             'Business SuperApp',
-                            style: GoogleFonts.dmSans(
+                            style: GoogleFonts.plusJakartaSans(
                               color: AppColors.textTertiary,
                               fontSize: 11,
                               letterSpacing: 1.5,
@@ -149,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   Text(
                     'Bienvenido',
-                    style: GoogleFonts.dmSans(
+                    style: GoogleFonts.plusJakartaSans(
                       color: AppColors.textPrimary,
                       fontSize: 30,
                       fontWeight: FontWeight.w700,
@@ -159,7 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 4),
                   Text(
                     'Inicia sesión para gestionar tu negocio',
-                    style: GoogleFonts.dmSans(
+                    style: GoogleFonts.plusJakartaSans(
                       color: AppColors.textSecondary,
                       fontSize: 14,
                     ),
@@ -228,8 +228,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               onPressed: () {},
                               child: Text(
                                 '¿Olvidaste tu contraseña?',
-                                style: GoogleFonts.dmSans(
-                                  color: AppColors.gold,
+                                style: GoogleFonts.plusJakartaSans(
+                                  color: AppColors.primary,
                                   fontSize: 13,
                                 ),
                               ),
@@ -257,7 +257,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Text(
                         '¿Aún no tienes cuenta? ',
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                           color: AppColors.textSecondary,
                           fontSize: 13,
                         ),
@@ -266,8 +266,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         onTap: () {},
                         child: Text(
                           'Regístrate',
-                          style: GoogleFonts.dmSans(
-                            color: AppColors.gold,
+                          style: GoogleFonts.plusJakartaSans(
+                            color: AppColors.primary,
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
                           ),
@@ -282,19 +282,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   Row(
                     children: [
                       const Expanded(
-                          child: Divider(color: AppColors.borderWhite)),
+                          child: Divider(color: AppColors.border)),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
                         child: Text(
                           'soporte',
-                          style: GoogleFonts.dmSans(
+                          style: GoogleFonts.plusJakartaSans(
                             color: AppColors.textTertiary,
                             fontSize: 11,
                           ),
                         ),
                       ),
                       const Expanded(
-                          child: Divider(color: AppColors.borderWhite)),
+                          child: Divider(color: AppColors.border)),
                     ],
                   ).animate(delay: 700.ms).fadeIn(),
 
@@ -328,7 +328,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Center(
                     child: Text(
                       'v$_version · CETI App',
-                      style: GoogleFonts.dmSans(
+                      style: GoogleFonts.plusJakartaSans(
                         color: AppColors.textTertiary,
                         fontSize: 11,
                       ),
@@ -377,7 +377,7 @@ class _GlassField extends StatelessWidget {
           controller: controller,
           obscureText: obscure,
           keyboardType: keyboardType,
-          style: GoogleFonts.dmSans(
+          style: GoogleFonts.plusJakartaSans(
             color: AppColors.textPrimary,
             fontSize: 14,
           ),
@@ -414,12 +414,12 @@ class _SupportChip extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppColors.borderWhite, width: 0.5),
+          border: Border.all(color: AppColors.border, width: 0.5),
           color: AppColors.glassWhite,
         ),
         child: Text(
           label,
-          style: GoogleFonts.dmSans(
+          style: GoogleFonts.plusJakartaSans(
             color: AppColors.textSecondary,
             fontSize: 12,
           ),
@@ -451,9 +451,9 @@ class _LanguageSheetState extends State<_LanguageSheet> {
     return Container(
       margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.surfaceDark,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: AppColors.borderWhite, width: 0.5),
+        border: Border.all(color: AppColors.border, width: 0.5),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -463,14 +463,14 @@ class _LanguageSheetState extends State<_LanguageSheet> {
             width: 36,
             height: 4,
             decoration: BoxDecoration(
-              color: AppColors.borderWhite,
+              color: AppColors.border,
               borderRadius: BorderRadius.circular(4),
             ),
           ),
           const SizedBox(height: 20),
           Text(
             'Seleccionar Idioma',
-            style: GoogleFonts.dmSans(
+            style: GoogleFonts.plusJakartaSans(
               color: AppColors.textPrimary,
               fontSize: 16,
               fontWeight: FontWeight.w700,
@@ -488,11 +488,11 @@ class _LanguageSheetState extends State<_LanguageSheet> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(
-                    color: selected ? AppColors.gold : AppColors.borderWhite,
+                    color: selected ? AppColors.primary : AppColors.border,
                     width: selected ? 1 : 0.5,
                   ),
                   color: selected
-                      ? AppColors.gold.withValues(alpha: 0.08)
+                      ? AppColors.primary.withValues(alpha: 0.08)
                       : Colors.transparent,
                 ),
                 child: Row(
@@ -501,9 +501,9 @@ class _LanguageSheetState extends State<_LanguageSheet> {
                     const SizedBox(width: 16),
                     Text(
                       lang['name']!,
-                      style: GoogleFonts.dmSans(
+                      style: GoogleFonts.plusJakartaSans(
                         color: selected
-                            ? AppColors.gold
+                            ? AppColors.primary
                             : AppColors.textPrimary,
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
@@ -512,7 +512,7 @@ class _LanguageSheetState extends State<_LanguageSheet> {
                     const Spacer(),
                     if (selected)
                       const Icon(Icons.check_circle,
-                          color: AppColors.gold, size: 20),
+                          color: AppColors.primary, size: 20),
                   ],
                 ),
               ),

@@ -28,9 +28,9 @@ class CetiBottomNav extends StatelessWidget {
       height: 80,
       margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
       decoration: BoxDecoration(
-        color: AppColors.surfaceDark,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(28),
-        border: Border.all(color: AppColors.borderWhite, width: 0.5),
+        border: Border.all(color: AppColors.border, width: 0.5),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.5),
@@ -38,7 +38,7 @@ class CetiBottomNav extends StatelessWidget {
             offset: const Offset(0, 10),
           ),
           BoxShadow(
-            color: AppColors.gold.withValues(alpha: 0.04),
+            color: AppColors.primary.withValues(alpha: 0.04),
             blurRadius: 40,
             spreadRadius: 2,
           ),
@@ -70,14 +70,14 @@ class CetiBottomNav extends StatelessWidget {
                           gradient: const LinearGradient(
                             colors: [
                               Colors.transparent,
-                              AppColors.gold,
+                              AppColors.primary,
                               Colors.transparent,
                             ],
                           ),
                           borderRadius: BorderRadius.circular(4),
                           boxShadow: [
                             BoxShadow(
-                              color: AppColors.gold.withValues(alpha: 0.6),
+                              color: AppColors.primary.withValues(alpha: 0.6),
                               blurRadius: 8,
                               spreadRadius: 1,
                             ),
@@ -92,27 +92,27 @@ class CetiBottomNav extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: selected
-                            ? AppColors.gold.withValues(alpha: 0.12)
+                            ? AppColors.primary.withValues(alpha: 0.12)
                             : Colors.transparent,
                       ),
                       child: Icon(
                         item.icon,
                         size: selected ? 22 : 20,
                         color: selected
-                            ? AppColors.gold
+                            ? AppColors.primary
                             : AppColors.textTertiary,
                       ),
                     ),
                     const SizedBox(height: 2),
                     Text(
                       item.label,
-                      style: GoogleFonts.dmSans(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 10,
                         fontWeight: selected
                             ? FontWeight.w700
                             : FontWeight.w400,
                         color: selected
-                            ? AppColors.gold
+                            ? AppColors.primary
                             : AppColors.textTertiary,
                       ),
                     ),

@@ -61,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: AppColors.deepBlack,
+      backgroundColor: AppColors.background,
       body: Stack(
         children: [
           // Radial amber glow background
@@ -110,7 +110,7 @@ class _SplashScreenState extends State<SplashScreen>
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.gold.withValues(alpha: 0.3),
+                          color: AppColors.primary.withValues(alpha: 0.3),
                           blurRadius: 40,
                           spreadRadius: 5,
                         ),
@@ -122,11 +122,11 @@ class _SplashScreenState extends State<SplashScreen>
                       errorBuilder: (_, _, _) => Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          gradient: AppColors.goldGradient,
+                          gradient: AppColors.primaryGradient,
                         ),
                         child: const Icon(
                           Icons.pets,
-                          color: AppColors.deepBlack,
+                          color: AppColors.background,
                           size: 60,
                         ),
                       ),
@@ -139,7 +139,7 @@ class _SplashScreenState extends State<SplashScreen>
                 // CETI Wordmark
                 Text(
                   'C E T I',
-                  style: GoogleFonts.dmSans(
+                  style: GoogleFonts.plusJakartaSans(
                     color: AppColors.textPrimary,
                     fontSize: 36,
                     fontWeight: FontWeight.w800,
@@ -155,7 +155,7 @@ class _SplashScreenState extends State<SplashScreen>
 
                 Text(
                   'Gestión inteligente para tu negocio',
-                  style: GoogleFonts.dmSans(
+                  style: GoogleFonts.plusJakartaSans(
                     color: AppColors.textTertiary,
                     fontSize: 12,
                     letterSpacing: 1.5,
@@ -184,7 +184,7 @@ class _SplashScreenState extends State<SplashScreen>
             child: Text(
               'v1.0.0 · CETI SuperApp',
               textAlign: TextAlign.center,
-              style: GoogleFonts.dmSans(
+              style: GoogleFonts.plusJakartaSans(
                 color: AppColors.textTertiary,
                 fontSize: 11,
                 letterSpacing: 1,
@@ -212,7 +212,7 @@ class _ShimmerBar extends StatelessWidget {
           height: 3,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            color: AppColors.gold.withValues(alpha: 0.15),
+            color: AppColors.primary.withValues(alpha: 0.15),
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(4),
@@ -223,7 +223,7 @@ class _ShimmerBar extends StatelessWidget {
                   widthFactor: controller.value,
                   child: Container(
                     decoration: const BoxDecoration(
-                      gradient: AppColors.goldGradient,
+                      gradient: AppColors.primaryGradient,
                     ),
                   ),
                 ),

@@ -116,7 +116,7 @@ class _InventoryScreenState extends State<InventoryScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.deepBlack,
+      color: AppColors.background,
       child: Column(
         children: [
           // ── Header ────────────────────────────────────────────────────────
@@ -128,7 +128,7 @@ class _InventoryScreenState extends State<InventoryScreen>
                 children: [
                   Text(
                     'Escandallo',
-                    style: GoogleFonts.dmSans(
+                    style: GoogleFonts.plusJakartaSans(
                       color: AppColors.textPrimary,
                       fontSize: 22,
                       fontWeight: FontWeight.w800,
@@ -140,12 +140,12 @@ class _InventoryScreenState extends State<InventoryScreen>
                         horizontal: 8, vertical: 3),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: AppColors.gold.withValues(alpha: 0.12),
+                      color: AppColors.primary.withValues(alpha: 0.12),
                     ),
                     child: Text(
                       'Motor de Costos',
-                      style: GoogleFonts.dmSans(
-                        color: AppColors.gold,
+                      style: GoogleFonts.plusJakartaSans(
+                        color: AppColors.primary,
                         fontSize: 10,
                         fontWeight: FontWeight.w700,
                       ),
@@ -197,7 +197,7 @@ class _InventoryScreenState extends State<InventoryScreen>
                         borderRadius: 20,
                         borderColor: lowMargin
                             ? AppColors.coral.withValues(alpha: 0.5)
-                            : AppColors.borderWhite,
+                            : AppColors.border,
                         child: Row(
                           children: [
                             Text(p.emoji,
@@ -209,7 +209,7 @@ class _InventoryScreenState extends State<InventoryScreen>
                                 children: [
                                   Text(
                                     p.name,
-                                    style: GoogleFonts.dmSans(
+                                    style: GoogleFonts.plusJakartaSans(
                                       color: AppColors.textPrimary,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
@@ -249,7 +249,7 @@ class _InventoryScreenState extends State<InventoryScreen>
                                   ),
                                   child: Text(
                                     '${m.toStringAsFixed(0)}%',
-                                    style: GoogleFonts.dmSans(
+                                    style: GoogleFonts.plusJakartaSans(
                                       color: lowMargin
                                           ? AppColors.coral
                                           : AppColors.success,
@@ -261,9 +261,9 @@ class _InventoryScreenState extends State<InventoryScreen>
                                 const SizedBox(height: 4),
                                 Text(
                                   'Stock: ${p.stock}',
-                                  style: GoogleFonts.dmSans(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: p.stock < 10
-                                        ? AppColors.amber
+                                        ? AppColors.warning
                                         : AppColors.textTertiary,
                                     fontSize: 11,
                                   ),
@@ -293,7 +293,7 @@ class _InventoryScreenState extends State<InventoryScreen>
                           children: [
                             Text(
                               'Top Vendidos — Esta Semana',
-                              style: GoogleFonts.dmSans(
+                              style: GoogleFonts.plusJakartaSans(
                                 color: AppColors.textPrimary,
                                 fontSize: 15,
                                 fontWeight: FontWeight.w700,
@@ -321,12 +321,12 @@ class _InventoryScreenState extends State<InventoryScreen>
                                     },
                                     touchTooltipData: BarTouchTooltipData(
                                       getTooltipColor: (_) =>
-                                          AppColors.cardDark,
+                                          AppColors.card,
                                       getTooltipItem: (g, gi, rod, ri) =>
                                           BarTooltipItem(
                                         '${rod.toY.toInt()} uds',
-                                        GoogleFonts.dmSans(
-                                            color: AppColors.gold,
+                                        GoogleFonts.plusJakartaSans(
+                                            color: AppColors.primary,
                                             fontWeight: FontWeight.w700),
                                       ),
                                     ),
@@ -357,7 +357,7 @@ class _InventoryScreenState extends State<InventoryScreen>
                                           reservedSize: 32,
                                           getTitlesWidget: (v, m) => Text(
                                                 '${v.toInt()}',
-                                                style: GoogleFonts.dmSans(
+                                                style: GoogleFonts.plusJakartaSans(
                                                     color: AppColors.textTertiary,
                                                     fontSize: 10),
                                               )),
@@ -372,7 +372,7 @@ class _InventoryScreenState extends State<InventoryScreen>
                                   gridData: FlGridData(
                                     drawVerticalLine: false,
                                     getDrawingHorizontalLine: (_) => FlLine(
-                                      color: AppColors.borderWhite,
+                                      color: AppColors.border,
                                       strokeWidth: 0.5,
                                     ),
                                   ),
@@ -408,11 +408,11 @@ class _InventoryScreenState extends State<InventoryScreen>
         BarChartRodData(
           toY: y,
           gradient: touched
-              ? AppColors.goldGradient
+              ? AppColors.primaryGradient
               : LinearGradient(
                   colors: [
-                    AppColors.gold.withValues(alpha: 0.5),
-                    AppColors.gold.withValues(alpha: 0.2),
+                    AppColors.primary.withValues(alpha: 0.5),
+                    AppColors.primary.withValues(alpha: 0.2),
                   ],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
@@ -454,10 +454,10 @@ class _EscandalloSheet extends StatelessWidget {
       maxChildSize: 0.9,
       builder: (context, ctrl) => Container(
         decoration: const BoxDecoration(
-          color: AppColors.surfaceDark,
+          color: AppColors.surface,
           borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
           border: Border(
-              top: BorderSide(color: AppColors.borderWhite, width: 0.5)),
+              top: BorderSide(color: AppColors.border, width: 0.5)),
         ),
         child: ListView(
           controller: ctrl,
@@ -468,7 +468,7 @@ class _EscandalloSheet extends StatelessWidget {
                 width: 36,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: AppColors.borderWhite,
+                  color: AppColors.border,
                   borderRadius: BorderRadius.circular(4),
                 ),
               ),
@@ -486,7 +486,7 @@ class _EscandalloSheet extends StatelessWidget {
                     children: [
                       Text(
                         product.name,
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                           color: AppColors.textPrimary,
                           fontSize: 20,
                           fontWeight: FontWeight.w800,
@@ -494,7 +494,7 @@ class _EscandalloSheet extends StatelessWidget {
                       ),
                       Text(
                         'Costo total · ${currency.format(product.cost)}',
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                           color: AppColors.textSecondary,
                           fontSize: 13,
                         ),
@@ -521,7 +521,7 @@ class _EscandalloSheet extends StatelessWidget {
                     children: [
                       Text(
                         '${_margin.toStringAsFixed(1)}%',
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                           color: low ? AppColors.coral : AppColors.success,
                           fontSize: 18,
                           fontWeight: FontWeight.w800,
@@ -529,7 +529,7 @@ class _EscandalloSheet extends StatelessWidget {
                       ),
                       Text(
                         'Margen',
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                           color: low ? AppColors.coral : AppColors.success,
                           fontSize: 10,
                         ),
@@ -558,7 +558,7 @@ class _EscandalloSheet extends StatelessWidget {
                     Expanded(
                       child: Text(
                         '⚠️ Margen por debajo del 20%. Considera ajustar el precio de venta.',
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                             color: AppColors.coral, fontSize: 12),
                       ),
                     ),
@@ -579,11 +579,11 @@ class _EscandalloSheet extends StatelessWidget {
                     child: Column(
                       children: [
                         Text('Precio Venta',
-                            style: GoogleFonts.dmSans(
+                            style: GoogleFonts.plusJakartaSans(
                                 color: AppColors.textTertiary, fontSize: 11)),
                         Text(currency.format(product.price),
-                            style: GoogleFonts.dmSans(
-                                color: AppColors.gold,
+                            style: GoogleFonts.plusJakartaSans(
+                                color: AppColors.primary,
                                 fontSize: 20,
                                 fontWeight: FontWeight.w800)),
                       ],
@@ -598,10 +598,10 @@ class _EscandalloSheet extends StatelessWidget {
                     child: Column(
                       children: [
                         Text('Costo Total',
-                            style: GoogleFonts.dmSans(
+                            style: GoogleFonts.plusJakartaSans(
                                 color: AppColors.textTertiary, fontSize: 11)),
                         Text(currency.format(product.cost),
-                            style: GoogleFonts.dmSans(
+                            style: GoogleFonts.plusJakartaSans(
                                 color: AppColors.textSecondary,
                                 fontSize: 20,
                                 fontWeight: FontWeight.w800)),
@@ -617,11 +617,11 @@ class _EscandalloSheet extends StatelessWidget {
                     child: Column(
                       children: [
                         Text('Ganancia',
-                            style: GoogleFonts.dmSans(
+                            style: GoogleFonts.plusJakartaSans(
                                 color: AppColors.textTertiary, fontSize: 11)),
                         Text(
                             currency.format(product.price - product.cost),
-                            style: GoogleFonts.dmSans(
+                            style: GoogleFonts.plusJakartaSans(
                                 color: AppColors.success,
                                 fontSize: 20,
                                 fontWeight: FontWeight.w800)),
@@ -636,7 +636,7 @@ class _EscandalloSheet extends StatelessWidget {
 
             Text(
               'Ingredientes / Insumos',
-              style: GoogleFonts.dmSans(
+              style: GoogleFonts.plusJakartaSans(
                 color: AppColors.textPrimary,
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
@@ -659,14 +659,14 @@ class _EscandalloSheet extends StatelessWidget {
                         height: 6,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.gold,
+                          color: AppColors.primary,
                         ),
                       ),
                       const SizedBox(width: 12),
                       Expanded(
                         child: Text(
                           ing.name,
-                          style: GoogleFonts.dmSans(
+                          style: GoogleFonts.plusJakartaSans(
                             color: AppColors.textPrimary,
                             fontSize: 13,
                           ),
@@ -674,7 +674,7 @@ class _EscandalloSheet extends StatelessWidget {
                       ),
                       Text(
                         ing.unit,
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                           color: AppColors.textTertiary,
                           fontSize: 11,
                         ),
@@ -682,7 +682,7 @@ class _EscandalloSheet extends StatelessWidget {
                       const SizedBox(width: 12),
                       Text(
                         currency.format(ing.cost),
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                           color: AppColors.textSecondary,
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
@@ -717,7 +717,7 @@ class _InfoChip extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: GoogleFonts.dmSans(color: color, fontSize: 10),
+        style: GoogleFonts.plusJakartaSans(color: color, fontSize: 10),
       ),
     );
   }

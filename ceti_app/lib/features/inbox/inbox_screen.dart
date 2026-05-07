@@ -97,7 +97,7 @@ class _InboxScreenState extends State<InboxScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.deepBlack,
+      color: AppColors.background,
       child: Column(
         children: [
           // ── Header ────────────────────────────────────────────────────────
@@ -109,7 +109,7 @@ class _InboxScreenState extends State<InboxScreen>
                 children: [
                   Text(
                     'Bandeja Omnicanal',
-                    style: GoogleFonts.dmSans(
+                    style: GoogleFonts.plusJakartaSans(
                       color: AppColors.textPrimary,
                       fontSize: 20,
                       fontWeight: FontWeight.w800,
@@ -133,7 +133,7 @@ class _InboxScreenState extends State<InboxScreen>
                         const SizedBox(width: 4),
                         Text(
                           'IA Activa',
-                          style: GoogleFonts.dmSans(
+                          style: GoogleFonts.plusJakartaSans(
                             color: AppColors.purple,
                             fontSize: 11,
                             fontWeight: FontWeight.w700,
@@ -172,7 +172,7 @@ class _InboxScreenState extends State<InboxScreen>
                         border: Border.all(
                           color: active
                               ? ch.color.withValues(alpha: 0.5)
-                              : AppColors.borderWhite,
+                              : AppColors.border,
                           width: 0.5,
                         ),
                       ),
@@ -261,7 +261,7 @@ class _InboxScreenState extends State<InboxScreen>
                                       Flexible(
                                         child: Text(
                                           msg.name,
-                                          style: GoogleFonts.dmSans(
+                                          style: GoogleFonts.plusJakartaSans(
                                             color: AppColors.textPrimary,
                                             fontSize: 13,
                                             fontWeight: FontWeight.w700,
@@ -282,7 +282,7 @@ class _InboxScreenState extends State<InboxScreen>
                                           ),
                                           child: Text(
                                             'IA ✦',
-                                            style: GoogleFonts.dmSans(
+                                            style: GoogleFonts.plusJakartaSans(
                                               color: AppColors.purple,
                                               fontSize: 9,
                                               fontWeight: FontWeight.w800,
@@ -295,7 +295,7 @@ class _InboxScreenState extends State<InboxScreen>
                                   const SizedBox(height: 3),
                                   Text(
                                     msg.text,
-                                    style: GoogleFonts.dmSans(
+                                    style: GoogleFonts.plusJakartaSans(
                                       color: AppColors.textSecondary,
                                       fontSize: 12,
                                     ),
@@ -311,7 +311,7 @@ class _InboxScreenState extends State<InboxScreen>
                               children: [
                                 Text(
                                   msg.time,
-                                  style: GoogleFonts.dmSans(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: AppColors.textTertiary,
                                     fontSize: 10,
                                   ),
@@ -328,7 +328,7 @@ class _InboxScreenState extends State<InboxScreen>
                                     child: Center(
                                       child: Text(
                                         '${msg.unread}',
-                                        style: GoogleFonts.dmSans(
+                                        style: GoogleFonts.plusJakartaSans(
                                           color: Colors.white,
                                           fontSize: 10,
                                           fontWeight: FontWeight.w800,
@@ -361,9 +361,9 @@ class _InboxScreenState extends State<InboxScreen>
         margin: const EdgeInsets.all(16),
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
-          color: AppColors.surfaceDark,
+          color: AppColors.surface,
           borderRadius: BorderRadius.circular(24),
-          border: Border.all(color: AppColors.borderWhite, width: 0.5),
+          border: Border.all(color: AppColors.border, width: 0.5),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -372,14 +372,14 @@ class _InboxScreenState extends State<InboxScreen>
               width: 36,
               height: 4,
               decoration: BoxDecoration(
-                color: AppColors.borderWhite,
+                color: AppColors.border,
                 borderRadius: BorderRadius.circular(4),
               ),
             ),
             const SizedBox(height: 20),
             Text(
               'Convertir a Pedido',
-              style: GoogleFonts.dmSans(
+              style: GoogleFonts.plusJakartaSans(
                 color: AppColors.textPrimary,
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
@@ -391,7 +391,7 @@ class _InboxScreenState extends State<InboxScreen>
               borderRadius: 16,
               child: Text(
                 '"${msg.text}"',
-                style: GoogleFonts.dmSans(
+                style: GoogleFonts.plusJakartaSans(
                   color: AppColors.textSecondary,
                   fontSize: 13,
                   fontStyle: FontStyle.italic,
@@ -402,7 +402,7 @@ class _InboxScreenState extends State<InboxScreen>
             Text(
               'Se creará un nuevo pedido con el texto del mensaje y se abrirá el POS.',
               textAlign: TextAlign.center,
-              style: GoogleFonts.dmSans(
+              style: GoogleFonts.plusJakartaSans(
                 color: AppColors.textTertiary,
                 fontSize: 12,
               ),
@@ -418,12 +418,12 @@ class _InboxScreenState extends State<InboxScreen>
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
                         border:
-                            Border.all(color: AppColors.borderWhite, width: 0.5),
+                            Border.all(color: AppColors.border, width: 0.5),
                       ),
                       child: Text(
                         'Cancelar',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.dmSans(
+                        style: GoogleFonts.plusJakartaSans(
                             color: AppColors.textSecondary, fontSize: 14),
                       ),
                     ),
@@ -438,10 +438,10 @@ class _InboxScreenState extends State<InboxScreen>
                         SnackBar(
                           content: Text(
                             '🛒 Pedido creado desde ${msg.name}',
-                            style: GoogleFonts.dmSans(
+                            style: GoogleFonts.plusJakartaSans(
                                 color: AppColors.textPrimary),
                           ),
-                          backgroundColor: AppColors.cardDark,
+                          backgroundColor: AppColors.card,
                         ),
                       );
                     },
@@ -449,13 +449,13 @@ class _InboxScreenState extends State<InboxScreen>
                       padding: const EdgeInsets.symmetric(vertical: 14),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
-                        gradient: AppColors.goldGradient,
+                        gradient: AppColors.primaryGradient,
                       ),
                       child: Text(
                         'Crear Pedido',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.dmSans(
-                          color: AppColors.deepBlack,
+                        style: GoogleFonts.plusJakartaSans(
+                          color: AppColors.background,
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
                         ),

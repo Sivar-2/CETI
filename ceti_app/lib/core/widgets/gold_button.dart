@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import '../theme/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// Gold gradient CTA button used across CETI.
+/// GoldButton — Repurposed as PrimaryButton for light theme.
 class GoldButton extends StatefulWidget {
   const GoldButton({
     super.key,
@@ -69,6 +69,9 @@ class _GoldButtonState extends State<GoldButton>
 
   @override
   Widget build(BuildContext context) {
+    final bgColor = widget.color ?? AppColors.primary;
+    final fgColor = widget.textColor ?? AppColors.white;
+
     return GestureDetector(
       onTapDown: _handleTapDown,
       onTapUp: _handleTapUp,
@@ -84,19 +87,13 @@ class _GoldButtonState extends State<GoldButton>
           padding: widget.padding ??
               const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           decoration: BoxDecoration(
-            gradient: widget.color == null ? AppColors.goldGradient : null,
-            color: widget.color,
+            color: bgColor,
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: (widget.color ?? AppColors.gold).withValues(alpha: 0.35),
-                blurRadius: 20,
+                color: bgColor.withValues(alpha: 0.25),
+                blurRadius: 16,
                 offset: const Offset(0, 6),
-              ),
-              BoxShadow(
-                color: (widget.color ?? AppColors.gold).withValues(alpha: 0.15),
-                blurRadius: 40,
-                spreadRadius: -4,
               ),
             ],
           ),
@@ -106,7 +103,7 @@ class _GoldButtonState extends State<GoldButton>
                   width: 20,
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
-                    valueColor: AlwaysStoppedAnimation(widget.textColor ?? AppColors.deepBlack),
+                    valueColor: AlwaysStoppedAnimation(fgColor),
                   ),
                 )
               : Row(
@@ -114,17 +111,16 @@ class _GoldButtonState extends State<GoldButton>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     if (widget.icon != null) ...[
-                      Icon(widget.icon,
-                          color: widget.textColor ?? AppColors.deepBlack, size: 18),
+                      Icon(widget.icon, color: fgColor, size: 20),
                       const SizedBox(width: 8),
                     ],
                     Text(
                       widget.label,
-                      style: GoogleFonts.dmSans(
-                        color: widget.textColor ?? AppColors.deepBlack,
+                      style: GoogleFonts.plusJakartaSans(
+                        color: fgColor,
                         fontSize: widget.fontSize,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: 0.3,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 0,
                       ),
                     ),
                   ],
@@ -135,7 +131,7 @@ class _GoldButtonState extends State<GoldButton>
   }
 }
 
-/// Outlined secondary button with gold border.
+/// GoldOutlineButton — Repurposed as PrimaryOutlineButton.
 class GoldOutlineButton extends StatefulWidget {
   const GoldOutlineButton({
     super.key,
@@ -194,23 +190,23 @@ class _GoldOutlineButtonState extends State<GoldOutlineButton>
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 13),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: AppColors.gold, width: 1),
-            color: AppColors.gold.withValues(alpha: 0.07),
+            border: Border.all(color: AppColors.primary, width: 2),
+            color: AppColors.primary.withValues(alpha: 0.05),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (widget.icon != null) ...[
-                Icon(widget.icon, color: AppColors.gold, size: 16),
-                const SizedBox(width: 6),
+                Icon(widget.icon, color: AppColors.primary, size: 18),
+                const SizedBox(width: 8),
               ],
               Text(
                 widget.label,
-                style: GoogleFonts.dmSans(
-                  color: AppColors.gold,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
+                style: GoogleFonts.plusJakartaSans(
+                  color: AppColors.primary,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ],

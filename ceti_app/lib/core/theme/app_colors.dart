@@ -4,71 +4,66 @@ class AppColors {
   AppColors._();
 
   // ── Backgrounds ──────────────────────────────────────────────────────────
-  static const Color deepBlack = Color(0xFF080810);
-  static const Color surfaceDark = Color(0xFF10101E);
-  static const Color cardDark = Color(0xFF15151F);
-  static const Color modalDark = Color(0xFF12121C);
+  static const Color background = Color(0xFFF7F8FA); // Soft Light Gray
+  static const Color surface = Color(0xFFFFFFFF);    // Pure White
+  static const Color card = Color(0xFFFFFFFF);       // Pure White
+  static const Color modal = Color(0xFFFFFFFF);      // Pure White
 
-  // ── Gold Spectrum ─────────────────────────────────────────────────────────
-  static const Color gold = Color(0xFFD4A017);
-  static const Color goldLight = Color(0xFFF5C842);
-  static const Color goldDim = Color(0xFF8A6800);
-  static const Color amber = Color(0xFFFFB300);
-
+  // ── Brand Spectrum (Vibrant & Addictive) ──────────────────────────────────
+  static const Color primary = Color(0xFFFF4757);    // Vibrant Coral Red (Urgency/Appetite)
+  static const Color primaryLight = Color(0xFFFF6B81); 
+  static const Color primaryDim = Color(0xFFFFEAA7); 
+  static const Color accent = Color(0xFF2ED573);     // Vibrant Green
+  
   // ── Semantic ─────────────────────────────────────────────────────────────
-  static const Color coral = Color(0xFFFF5A5A);
-  static const Color success = Color(0xFF34D399);
-  static const Color purple = Color(0xFF8B5CF6);
-  static const Color blue = Color(0xFF3B82F6);
+  static const Color coral = Color(0xFFFF4757);      // Error / Alert
+  static const Color success = Color(0xFF2ED573);    // Success Green
+  static const Color warning = Color(0xFFFFA502);    // Warning Orange
+  static const Color purple = Color(0xFF7047EB);     // Deep Purple
+  static const Color blue = Color(0xFF1E90FF);       // Dodger Blue
 
   // ── Social Channel Colors ─────────────────────────────────────────────────
   static const Color whatsapp = Color(0xFF25D366);
   static const Color instagram = Color(0xFFE1306C);
   static const Color facebook = Color(0xFF1877F2);
-  static const Color tiktok = Color(0xFFEE1D52);
+  static const Color tiktok = Color(0xFF000000);
 
   // ── Neutrals ─────────────────────────────────────────────────────────────
   static const Color white = Color(0xFFFFFFFF);
-  static const Color textPrimary = Color(0xFFF0F0F8);
-  static const Color textSecondary = Color(0xFF8888AA);
-  static const Color textTertiary = Color(0xFF55556A);
+  static const Color textPrimary = Color(0xFF2F3542); // Dark Slate
+  static const Color textSecondary = Color(0xFF747D8C); // Medium Gray
+  static const Color textTertiary = Color(0xFFA4B0BE);  // Light Gray
+  static const Color border = Color(0xFFDFE4EA);        // Soft Border
 
-  // ── Glass ────────────────────────────────────────────────────────────────
-  static const Color glassWhite = Color(0x0DFFFFFF); // 5% white
-  static const Color glassMid = Color(0x1AFFFFFF); // 10% white
-  static const Color borderWhite = Color(0x14FFFFFF); // 8% white
+  // ── Soft Effects ─────────────────────────────────────────────────────────
+  static const Color glassWhite = Color(0xFFF1F2F6);    // Input background
+  static const Color highlight = Color(0x1AFF4757);     // 10% Primary
 
   // ── Gradients ────────────────────────────────────────────────────────────
-  static const LinearGradient goldGradient = LinearGradient(
-    colors: [gold, goldLight],
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-  );
-
-  static const LinearGradient goldVertical = LinearGradient(
-    colors: [goldLight, gold],
+  static const LinearGradient primaryGradient = LinearGradient(
+    colors: [primary, primaryLight],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
 
-  static const RadialGradient amberGlow = RadialGradient(
-    colors: [Color(0x33FFB300), Color(0x00000000)],
-    radius: 0.7,
+  static const LinearGradient accentGradient = LinearGradient(
+    colors: [accent, Color(0xFF7BED9F)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
   );
 
   static const LinearGradient darkSurface = LinearGradient(
-    colors: [Color(0xFF14141F), Color(0xFF0D0D18)],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
+    colors: [Color(0xFFFFFFFF), Color(0xFFF1F2F6)],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
   );
 
-  // ── Loyalty Tiers ─────────────────────────────────────────────────────────
-  static const Color bronze = Color(0xFFCD7F32);
-  static const Color silver = Color(0xFFC0C0C0);
-  // gold already defined above
-
   // ── Table Status ─────────────────────────────────────────────────────────
-  static const Color tableOccupied = Color(0xFFFF5A5A);
-  static const Color tableSelected = Color(0xFFD4A017);
-  static const Color tableFree = Color(0xFF34D399);
+  static const Color tableOccupied = Color(0xFFFF4757);
+  static const Color tableSelected = Color(0xFF7047EB);
+  static const Color tableFree = Color(0xFF2ED573);
+
+  // ── Loyalty Tiers ─────────────────────────────────────────────────────────
+  static const Color silver = Color(0xFFC0C0C0);
+  static const Color bronze = Color(0xFFCD7F32);
 }

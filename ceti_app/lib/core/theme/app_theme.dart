@@ -6,41 +6,43 @@ import 'app_colors.dart';
 class AppTheme {
   AppTheme._();
 
-  static ThemeData get dark {
-    final base = ThemeData.dark(useMaterial3: true);
+  static ThemeData get light {
+    final base = ThemeData.light(useMaterial3: true);
     return base.copyWith(
-      scaffoldBackgroundColor: AppColors.deepBlack,
-      colorScheme: const ColorScheme.dark(
-        primary: AppColors.gold,
-        secondary: AppColors.goldLight,
-        surface: AppColors.surfaceDark,
+      scaffoldBackgroundColor: AppColors.background,
+      colorScheme: const ColorScheme.light(
+        primary: AppColors.primary,
+        secondary: AppColors.accent,
+        surface: AppColors.surface,
         error: AppColors.coral,
-        onPrimary: AppColors.deepBlack,
-        onSecondary: AppColors.deepBlack,
+        onPrimary: AppColors.white,
+        onSecondary: AppColors.white,
         onSurface: AppColors.textPrimary,
       ),
-      textTheme: GoogleFonts.dmSansTextTheme(base.textTheme).apply(
+      textTheme: GoogleFonts.plusJakartaSansTextTheme(base.textTheme).apply(
         bodyColor: AppColors.textPrimary,
         displayColor: AppColors.textPrimary,
       ),
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        systemOverlayStyle: SystemUiOverlayStyle.light,
-        titleTextStyle: GoogleFonts.dmSans(
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
+        titleTextStyle: GoogleFonts.plusJakartaSans(
           color: AppColors.textPrimary,
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-          letterSpacing: 0.5,
+          fontSize: 20,
+          fontWeight: FontWeight.w800,
+          letterSpacing: -0.5,
         ),
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
+        centerTitle: false,
       ),
       cardTheme: CardThemeData(
-        color: AppColors.cardDark,
-        elevation: 0,
+        color: AppColors.card,
+        elevation: 8,
+        shadowColor: AppColors.textTertiary.withValues(alpha: 0.15),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: AppColors.borderWhite, width: 0.5),
+          borderRadius: BorderRadius.circular(24),
+          side: const BorderSide(color: AppColors.border, width: 1),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
@@ -49,79 +51,82 @@ class AppTheme {
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: AppColors.borderWhite, width: 0.5),
+          borderSide: BorderSide.none,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: AppColors.borderWhite, width: 0.5),
+          borderSide: const BorderSide(color: AppColors.border, width: 1),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: AppColors.gold, width: 1),
+          borderSide: const BorderSide(color: AppColors.primary, width: 2),
         ),
-        hintStyle: GoogleFonts.dmSans(
+        hintStyle: GoogleFonts.plusJakartaSans(
           color: AppColors.textTertiary,
-          fontSize: 14,
+          fontSize: 15,
         ),
-        labelStyle: GoogleFonts.dmSans(
+        labelStyle: GoogleFonts.plusJakartaSans(
           color: AppColors.textSecondary,
-          fontSize: 14,
+          fontSize: 15,
+          fontWeight: FontWeight.w600,
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.gold,
-          foregroundColor: AppColors.deepBlack,
+          backgroundColor: AppColors.primary,
+          foregroundColor: AppColors.white,
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          textStyle: GoogleFonts.dmSans(
-            fontSize: 15,
+          textStyle: GoogleFonts.plusJakartaSans(
+            fontSize: 16,
             fontWeight: FontWeight.w700,
-            letterSpacing: 0.5,
+            letterSpacing: 0,
           ),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: Colors.transparent,
-        selectedItemColor: AppColors.gold,
+        backgroundColor: AppColors.surface,
+        selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.textTertiary,
         showSelectedLabels: true,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
+        elevation: 20,
       ),
       dividerTheme: const DividerThemeData(
-        color: AppColors.borderWhite,
-        thickness: 0.5,
+        color: AppColors.border,
+        thickness: 1,
       ),
       tabBarTheme: TabBarThemeData(
         indicator: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          gradient: AppColors.goldGradient,
+          borderRadius: BorderRadius.circular(14),
+          color: AppColors.primary,
         ),
-        labelColor: AppColors.deepBlack,
+        indicatorSize: TabBarIndicatorSize.tab,
+        labelColor: AppColors.white,
         unselectedLabelColor: AppColors.textSecondary,
-        labelStyle: GoogleFonts.dmSans(
-          fontSize: 12,
-          fontWeight: FontWeight.w700,
+        labelStyle: GoogleFonts.plusJakartaSans(
+          fontSize: 14,
+          fontWeight: FontWeight.w800,
         ),
-        unselectedLabelStyle: GoogleFonts.dmSans(
-          fontSize: 12,
-          fontWeight: FontWeight.w500,
+        unselectedLabelStyle: GoogleFonts.plusJakartaSans(
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
         ),
         dividerColor: Colors.transparent,
       ),
       snackBarTheme: SnackBarThemeData(
-        backgroundColor: AppColors.cardDark,
-        contentTextStyle: GoogleFonts.dmSans(
-          color: AppColors.textPrimary,
+        backgroundColor: AppColors.textPrimary,
+        contentTextStyle: GoogleFonts.plusJakartaSans(
+          color: AppColors.white,
           fontSize: 14,
+          fontWeight: FontWeight.w600,
         ),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14),
-          side: const BorderSide(color: AppColors.borderWhite, width: 0.5),
+          borderRadius: BorderRadius.circular(16),
         ),
         behavior: SnackBarBehavior.floating,
       ),
