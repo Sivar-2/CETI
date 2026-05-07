@@ -1,0 +1,44 @@
+name: Deploy Flutter Web to GitHub Pages
+
+on:
+  # Permite que la acción se ejecute cada vez que subas código a la rama main (o master)
+  push:
+    branches:
+      - main
+      - master
+  # Permite ejecutar este flujo de trabajo manualmente desde la pestaña "Actions"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el código (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Configurar Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Instalar dependencias
+        run: flutter pub get
+        working-directory: ./ceti_app
+
+      - name: Construir la versión Web
+        # El base-href dinámico asegura que los recursos carguen correctamente sin importar el nombre del repositorio
+        run: flutter build web --base-href /${{ github.event.repository.name }}/
+        working-directory: ./ceti_app
+
+      - name: Desplegar a GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./ceti_app/build/web
+          # Mantén un solo commit en la rama gh-pages para que no pese demasiado
+          keep_files: false
