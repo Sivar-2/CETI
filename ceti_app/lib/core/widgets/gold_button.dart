@@ -116,7 +116,7 @@ class _GoldButtonState extends State<GoldButton>
                     ],
                     Text(
                       widget.label,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         color: fgColor,
                         fontSize: widget.fontSize,
                         fontWeight: FontWeight.w800,
@@ -203,7 +203,7 @@ class _GoldOutlineButtonState extends State<GoldOutlineButton>
               ],
               Text(
                 widget.label,
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   color: AppColors.primary,
                   fontSize: 15,
                   fontWeight: FontWeight.w700,

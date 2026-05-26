@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/providers/auth_provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -46,7 +48,21 @@ class _SplashScreenState extends State<SplashScreen>
     });
 
     Future.delayed(const Duration(milliseconds: 2400), () {
-      if (mounted) context.go('/login');
+      if (mounted) {
+        final auth = context.read<AuthProvider>();
+        switch (auth.status) {
+          case AuthStatus.authenticated:
+            context.go('/home');
+            break;
+          case AuthStatus.pinRequired:
+          case AuthStatus.pinSetup:
+            context.go('/pin');
+            break;
+          case AuthStatus.unauthenticated:
+            context.go('/login');
+            break;
+        }
+      }
     });
   }
 
@@ -61,20 +77,20 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.primary,
       body: Stack(
         children: [
-          // Radial amber glow background
+          // Radial amethyst glow background
           Positioned.fill(
             child: Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: RadialGradient(
-                  center: Alignment(0, -0.1),
+                  center: const Alignment(0, -0.1),
                   radius: 0.75,
                   colors: [
-                    Color(0x33D4A017),
-                    Color(0x14D4A017),
-                    Color(0x00000000),
+                    AppColors.accent.withValues(alpha: 0.3),
+                    AppColors.accent.withValues(alpha: 0.1),
+                    Colors.transparent,
                   ],
                 ),
               ),
@@ -110,24 +126,30 @@ class _SplashScreenState extends State<SplashScreen>
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.primary.withValues(alpha: 0.3),
+                          color: AppColors.white.withValues(alpha: 0.1),
                           blurRadius: 40,
                           spreadRadius: 5,
                         ),
                       ],
                     ),
-                    child: Image.asset(
-                      'assets/images/jaguar.png',
-                      fit: BoxFit.contain,
-                      errorBuilder: (_, _, _) => Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          gradient: AppColors.primaryGradient,
-                        ),
-                        child: const Icon(
-                          Icons.pets,
-                          color: AppColors.background,
-                          size: 60,
+                    child: ColorFiltered(
+                      colorFilter: const ColorFilter.mode(
+                        Colors.white,
+                        BlendMode.srcIn,
+                      ),
+                      child: Image.asset(
+                        'assets/images/jaguar.png',
+                        fit: BoxFit.contain,
+                        errorBuilder: (_, _, _) => Container(
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: AppColors.primaryGradient,
+                          ),
+                          child: const Icon(
+                            Icons.pets,
+                            color: AppColors.white,
+                            size: 60,
+                          ),
                         ),
                       ),
                     ),
@@ -139,8 +161,8 @@ class _SplashScreenState extends State<SplashScreen>
                 // CETI Wordmark
                 Text(
                   'C E T I',
-                  style: GoogleFonts.plusJakartaSans(
-                    color: AppColors.textPrimary,
+                  style: GoogleFonts.inter(
+                    color: AppColors.white,
                     fontSize: 36,
                     fontWeight: FontWeight.w800,
                     letterSpacing: 12,
@@ -148,15 +170,18 @@ class _SplashScreenState extends State<SplashScreen>
                 )
                     .animate(delay: 600.ms)
                     .fadeIn(duration: 800.ms)
-                    .slideY(begin: 0.3, end: 0, duration: 800.ms,
+                    .slideY(
+                        begin: 0.3,
+                        end: 0,
+                        duration: 800.ms,
                         curve: Curves.easeOut),
 
                 const SizedBox(height: 6),
 
                 Text(
                   'Gestión inteligente para tu negocio',
-                  style: GoogleFonts.plusJakartaSans(
-                    color: AppColors.textTertiary,
+                  style: GoogleFonts.inter(
+                    color: AppColors.white.withValues(alpha: 0.7),
                     fontSize: 12,
                     letterSpacing: 1.5,
                     fontWeight: FontWeight.w400,
@@ -184,8 +209,8 @@ class _SplashScreenState extends State<SplashScreen>
             child: Text(
               'v1.0.0 · CETI SuperApp',
               textAlign: TextAlign.center,
-              style: GoogleFonts.plusJakartaSans(
-                color: AppColors.textTertiary,
+              style: GoogleFonts.inter(
+                color: AppColors.white.withValues(alpha: 0.5),
                 fontSize: 11,
                 letterSpacing: 1,
               ),
@@ -212,22 +237,20 @@ class _ShimmerBar extends StatelessWidget {
           height: 3,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            color: AppColors.primary.withValues(alpha: 0.15),
+            color: AppColors.accent.withValues(alpha: 0.2),
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(4),
             child: Stack(
               children: [
-                // Progress bar fill
                 FractionallySizedBox(
                   widthFactor: controller.value,
                   child: Container(
                     decoration: const BoxDecoration(
-                      gradient: AppColors.primaryGradient,
+                      color: AppColors.accent,
                     ),
                   ),
                 ),
-                // Shimmer sweep
                 Positioned.fill(
                   child: Transform.translate(
                     offset: Offset(
@@ -240,7 +263,7 @@ class _ShimmerBar extends StatelessWidget {
                         gradient: LinearGradient(
                           colors: [
                             Colors.transparent,
-                            Colors.white.withValues(alpha: 0.4),
+                            AppColors.white.withValues(alpha: 0.6),
                             Colors.transparent,
                           ],
                         ),
@@ -263,7 +286,7 @@ class _GridPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = const Color(0x05FFFFFF)
+      ..color = AppColors.white.withValues(alpha: 0.05)
       ..strokeWidth = 0.5;
 
     const step = 40.0;

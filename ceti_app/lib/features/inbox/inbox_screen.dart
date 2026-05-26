@@ -109,7 +109,7 @@ class _InboxScreenState extends State<InboxScreen>
                 children: [
                   Text(
                     'Bandeja Omnicanal',
-                    style: GoogleFonts.plusJakartaSans(
+                    style: GoogleFonts.inter(
                       color: AppColors.textPrimary,
                       fontSize: 20,
                       fontWeight: FontWeight.w800,
@@ -133,7 +133,7 @@ class _InboxScreenState extends State<InboxScreen>
                         const SizedBox(width: 4),
                         Text(
                           'IA Activa',
-                          style: GoogleFonts.plusJakartaSans(
+                          style: GoogleFonts.inter(
                             color: AppColors.purple,
                             fontSize: 11,
                             fontWeight: FontWeight.w700,
@@ -261,7 +261,7 @@ class _InboxScreenState extends State<InboxScreen>
                                       Flexible(
                                         child: Text(
                                           msg.name,
-                                          style: GoogleFonts.plusJakartaSans(
+                                          style: GoogleFonts.inter(
                                             color: AppColors.textPrimary,
                                             fontSize: 13,
                                             fontWeight: FontWeight.w700,
@@ -282,7 +282,7 @@ class _InboxScreenState extends State<InboxScreen>
                                           ),
                                           child: Text(
                                             'IA ✦',
-                                            style: GoogleFonts.plusJakartaSans(
+                                            style: GoogleFonts.inter(
                                               color: AppColors.purple,
                                               fontSize: 9,
                                               fontWeight: FontWeight.w800,
@@ -295,7 +295,7 @@ class _InboxScreenState extends State<InboxScreen>
                                   const SizedBox(height: 3),
                                   Text(
                                     msg.text,
-                                    style: GoogleFonts.plusJakartaSans(
+                                    style: GoogleFonts.inter(
                                       color: AppColors.textSecondary,
                                       fontSize: 12,
                                     ),
@@ -311,7 +311,7 @@ class _InboxScreenState extends State<InboxScreen>
                               children: [
                                 Text(
                                   msg.time,
-                                  style: GoogleFonts.plusJakartaSans(
+                                  style: GoogleFonts.inter(
                                     color: AppColors.textTertiary,
                                     fontSize: 10,
                                   ),
@@ -328,7 +328,7 @@ class _InboxScreenState extends State<InboxScreen>
                                     child: Center(
                                       child: Text(
                                         '${msg.unread}',
-                                        style: GoogleFonts.plusJakartaSans(
+                                        style: GoogleFonts.inter(
                                           color: Colors.white,
                                           fontSize: 10,
                                           fontWeight: FontWeight.w800,
@@ -379,7 +379,7 @@ class _InboxScreenState extends State<InboxScreen>
             const SizedBox(height: 20),
             Text(
               'Convertir a Pedido',
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 color: AppColors.textPrimary,
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
@@ -391,7 +391,7 @@ class _InboxScreenState extends State<InboxScreen>
               borderRadius: 16,
               child: Text(
                 '"${msg.text}"',
-                style: GoogleFonts.plusJakartaSans(
+                style: GoogleFonts.inter(
                   color: AppColors.textSecondary,
                   fontSize: 13,
                   fontStyle: FontStyle.italic,
@@ -402,7 +402,7 @@ class _InboxScreenState extends State<InboxScreen>
             Text(
               'Se creará un nuevo pedido con el texto del mensaje y se abrirá el POS.',
               textAlign: TextAlign.center,
-              style: GoogleFonts.plusJakartaSans(
+              style: GoogleFonts.inter(
                 color: AppColors.textTertiary,
                 fontSize: 12,
               ),
@@ -423,7 +423,7 @@ class _InboxScreenState extends State<InboxScreen>
                       child: Text(
                         'Cancelar',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                             color: AppColors.textSecondary, fontSize: 14),
                       ),
                     ),
@@ -438,7 +438,7 @@ class _InboxScreenState extends State<InboxScreen>
                         SnackBar(
                           content: Text(
                             '🛒 Pedido creado desde ${msg.name}',
-                            style: GoogleFonts.plusJakartaSans(
+                            style: GoogleFonts.inter(
                                 color: AppColors.textPrimary),
                           ),
                           backgroundColor: AppColors.card,
@@ -454,7 +454,7 @@ class _InboxScreenState extends State<InboxScreen>
                       child: Text(
                         'Crear Pedido',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: GoogleFonts.inter(
                           color: AppColors.background,
                           fontSize: 14,
                           fontWeight: FontWeight.w700,

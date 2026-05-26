@@ -15,10 +15,9 @@ class CetiBottomNav extends StatelessWidget {
   final ValueChanged<int> onTap;
 
   static const _items = [
-    _NavItem(icon: Icons.dashboard_rounded, label: 'Inicio'),
-    _NavItem(icon: Icons.point_of_sale_rounded, label: 'POS'),
+    _NavItem(icon: Icons.home_rounded, label: 'Inicio'),
+    _NavItem(icon: Icons.receipt_long_rounded, label: 'Pedidos'),
     _NavItem(icon: Icons.inventory_2_rounded, label: 'Inventario'),
-    _NavItem(icon: Icons.forum_rounded, label: 'Mensajes'),
     _NavItem(icon: Icons.loyalty_rounded, label: 'Lealtad'),
   ];
 
@@ -106,7 +105,7 @@ class CetiBottomNav extends StatelessWidget {
                     const SizedBox(height: 2),
                     Text(
                       item.label,
-                      style: GoogleFonts.plusJakartaSans(
+                      style: GoogleFonts.inter(
                         fontSize: 10,
                         fontWeight: selected
                             ? FontWeight.w700

@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - master
+      - ceti-2.2
   # Permite ejecutar este flujo de trabajo manualmente desde la pestaña "Actions"
   workflow_dispatch:
 
