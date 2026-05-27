@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 
 import 'core/theme/app_theme.dart';
@@ -52,24 +53,26 @@ Future<void> main() async {
     cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
   );
 
-  // Poka-Yoke Telemetry Lock: Catch all unhandled Flutter errors
-  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  // Poka-Yoke Telemetry Lock: Catch all unhandled Flutter errors (Crashlytics is not supported on Web)
+  if (!kIsWeb) {
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
 
-  // Catch all unhandled asynchronous Dart errors silently
-  PlatformDispatcher.instance.onError = (error, stack) {
-    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-    return true;
-  };
+    // Catch all unhandled asynchronous Dart errors silently
+    PlatformDispatcher.instance.onError = (error, stack) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      return true;
+    };
 
-  // Catch isolate errors
-  Isolate.current.addErrorListener(RawReceivePort((pair) async {
-    final List<dynamic> errorAndStacktrace = pair;
-    await FirebaseCrashlytics.instance.recordError(
-      errorAndStacktrace.first,
-      StackTrace.fromString(errorAndStacktrace.last.toString()),
-      fatal: true,
-    );
-  }).sendPort);
+    // Catch isolate errors
+    Isolate.current.addErrorListener(RawReceivePort((pair) async {
+      final List<dynamic> errorAndStacktrace = pair;
+      await FirebaseCrashlytics.instance.recordError(
+        errorAndStacktrace.first,
+        StackTrace.fromString(errorAndStacktrace.last.toString()),
+        fatal: true,
+      );
+    }).sendPort);
+  }
 
   // Initialize auth provider
   final authProvider = AuthProvider();
